@@ -9,19 +9,33 @@ $(function () {
   $("#currentDay").text("Today is " + currentDay);
   $("#currentTime").text("It is currently " + currentHour +' '+ amPm);
 
-  function changeBlockColor() {
+  function blockColor() {
     $('.time-block').each(function(){
       var block = parseInt(this.id);
       $(this).toggleClass('.past', block < currentHour);
       $(this).toggleClass('.present',block === currentHour);
       $(this).toggleClass('.future',block > currentHour);
-    })
-  }
+    });
+  };
 
   function updateBlockColor() {
-    
-    
-  }
+    $('.time-block').each(function(){
+      var block = parseInt(this.id);
+      if (block == currentHour){
+        $(this).removeClass('past future').addClass("present");
+      }else if (block < currentHour){
+        $(this).removeClass("present future").addClass("past");
+      }else{
+        $(this).removeClass("past present").addClass("future");
+      }
+    }); 
+  };
+  
+
+  
+  
+
+  
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -38,5 +52,6 @@ $(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-changeBlockColor();
+blockColor();
+updateBlockColor();
 });
