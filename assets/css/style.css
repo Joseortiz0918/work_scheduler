@@ -57,3 +57,11 @@ textarea {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
+
+.btn-secondary{
+  background-color: #06aed5;
+}
+.btn-secondary:hover{
+  color: #000000;
+  background-color: #06aed5;
+}
