@@ -65,7 +65,6 @@ $(function () {
   //Displays proper message
   function isItTime() {
     currentHour = dayjs().get("hour");
-    console.log(currentHour);
     var morning = 9;
     var work = 17;
     var evening = 23;
@@ -74,7 +73,7 @@ $(function () {
     var atWork = work - currentHour;
     var doneWithWork = evening - currentHour;
 
-    console.log(workStartsIn);
+
 
     if (currentHour < 9) {
       $("#timeTillWork").text("Work Starts in " + workStartsIn + " hours");
